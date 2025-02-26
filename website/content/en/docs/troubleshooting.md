@@ -90,7 +90,7 @@ If Helm is showing an error when trying to install Karpenter Helm charts:
 - If you get an error like `Error: public.ecr.aws/karpenter/karpenter:0.34.0: not found` make sure you're adding a `v` prefix for Karpenter versions between `0.17.0` & `0.34.x`.
 - Verify that the image you are trying to pull actually exists in [gallery.ecr.aws/karpenter](https://gallery.ecr.aws/karpenter/karpenter)
 - Sometimes Helm generates a generic error, you can add the --debug switch to any of the Helm commands in this doc for more verbose error messages
-- If you are getting a 403 forbidden error, you can try `docker logout public.ecr.aws` as explained [here](https://docs.aws.amazon.com/AmazonECR/latest/public/public-troubleshooting.html).
+- If you are getting a 403 forbidden error, you can try `docker logout public.ecr.aws` as explained [here](https://docs.aws.amazon.com/AmazonECR/latest/public/public-troubleshooting.html). You can also try `aws ecr-public get-login-password --region us-east-1 | helm registry login --username AWS --password-stdin public.ecr.aws`.
 
 ### Helm Error when installing the `karpenter-crd` chart
 
